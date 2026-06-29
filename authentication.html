@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+
+    <title>user authentication</title>
+
+    <style>
+
+        body{
+            font-family:arial;
+            background-image:url("https://i.pinimg.com/736x/d1/db/58/d1db5809b4709c7d732158f5804c8599.jpg");
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+        }
+
+        .box{
+            background-color:#1e293b;
+            padding:30px;
+            border-radius:15px;
+            width:320px;
+            text-align:center;
+            box-shadow:0px 4px 15px rgba(0,0,0,0.4);
+        }
+
+        h2,h1{
+            color:white;
+        }
+
+        p{
+            color:white;
+        }
+
+        input{
+            width:90%;
+            padding:12px;
+            margin:10px 0;
+            border:none;
+            border-radius:5px;
+        }
+
+        button{
+            background-color:#38bdf8;
+            color:white;
+            padding:10px 25px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        #landingpage{
+            display:none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- login page -->
+
+    <div class="box" id="loginpage">
+
+        <h2>user login</h2>
+
+        <input type="text"
+        id="username"
+        placeholder="enter username">
+
+        <input type="password"
+        id="password"
+        placeholder="enter password">
+
+        <br><br>
+
+        <button onclick="login()">
+            login
+        </button>
+
+        <p id="result"></p>
+
+    </div>
+
+    <!-- landing page -->
+
+    <div class="box" id="landingpage">
+
+        <h1>welcome</h1>
+
+        <p>
+            login successful.
+            welcome to the landing page.
+        </p>
+
+        <button onclick="logout()">
+            logout
+        </button>
+
+    </div>
+
+    <script>
+
+        function login()
+        {
+            let user =
+            document.getElementById("username").value;
+
+            let pass =
+            document.getElementById("password").value;
+
+            if(user=="admin" && pass=="1234")
+            {
+                document.getElementById("loginpage").style.display="none";
+
+                document.getElementById("landingpage").style.display="block";
+            }
+            else
+            {
+                document.getElementById("result").innerHTML =
+                "invalid username or password";
+            }
+        }
+
+        function logout()
+        {
+            document.getElementById("landingpage").style.display="none";
+
+            document.getElementById("loginpage").style.display="block";
+        }
+
+    </script>
+
+</body>
+</html>

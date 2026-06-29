@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <title>book cards using grid</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color: lightgray;
+        }
+
+        .container{
+            display: grid;
+            grid-template-columns: repeat(2, 250px);
+            column-gap: 60px;
+            row-gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card{
+            width: 250px;
+            height: 380px;
+            background-color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 6px gray;
+        }
+
+        .card img{
+            width: 180px;
+            height: 230px;
+            border-radius: 5px;
+        }
+
+        .card h3{
+            color: navy;
+        }
+
+        .card p{
+            color: gray;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="card">
+            <img src="https://covers.openlibrary.org/b/id/7222246-L.jpg" alt="Pride and Prejudice">
+            <h3>Pride and Prejudice</h3>
+            <p>Romance / Classic</p>
+        </div>
+
+        <div class="card">
+            <img src="https://covers.openlibrary.org/b/id/11153254-L.jpg" alt="Coucou! C'est Qui?">
+            <h3>Coucou! C'est Qui?</h3>
+            <p>Children's Book</p>
+        </div>
+
+        <div class="card">
+            <img src="https://covers.openlibrary.org/b/id/8231856-L.jpg" alt="Their Eyes Were Watching God">
+            <h3>Their Eyes Were Watching God</h3>
+            <p>Fiction / Classic Literature</p>
+        </div>
+
+        <div class="card">
+            <img src="https://covers.openlibrary.org/b/id/240726-L.jpg" alt="Shouts of Nothingness">
+            <h3>Shouts of Nothingness</h3>
+            <p>Poetry / Philosophy</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

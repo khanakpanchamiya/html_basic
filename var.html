@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <title>css variables</title>
+
+    <style>
+
+        :root{
+            --maincolor: rgb(4, 67, 88);
+            --textcolor: rgb(255, 255, 255);
+        }
+
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: var(--maincolor);
+            color: var(--textcolor);
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .box2{
+            --maincolor: rgb(255, 0, 0);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        div 1
+    </div>
+
+    <div class="box box2">
+        div 2
+        
+    </div>
+
+    <div class="box">
+        div 3
+    </div>
+
+</body>
+</html>
