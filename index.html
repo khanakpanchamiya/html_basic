@@ -1,60 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple HTML & CSS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Lectures – JavaScript Basics</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            text-align: center;
-            margin: 0;
-            padding: 50px;
-        }
+  <meta name="description" content="A collection of JavaScript fundamentals lecture pages covering variables, data types, string methods, array methods, events, DOM selectors and more.">
 
-        .container {
-            background-color: white;
-            width: 300px;
-            margin: auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px gray;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        h1 {
-            color: #007BFF;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        p {
-            color: #555;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f0f17;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+    }
 
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .grid {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 28px 24px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.15),
+        rgba(139, 92, 246, 0.05)
+      );
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #8b5cf6;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.2),
+        rgba(139, 92, 246, 0.2)
+      );
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .card-body {
+      flex: 1;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f8fafc;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .arrow {
+      align-self: center;
+      font-size: 1.2rem;
+      color: #6366f1;
+      transition: transform 0.25s ease;
+      z-index: 1;
+    }
+
+    .card:hover .arrow {
+      transform: translateX(5px);
+    }
+
+    footer {
+      margin-top: 60px;
+      color: #475569;
+      font-size: 0.85rem;
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Welcome!</h1>
-        <p>This is a simple HTML page with CSS.</p>
-        <button>Click Me</button>
-    </div>
+  <div class="header">
+    <div class="badge">📚 Lecture Notes</div>
+    <h1>JavaScript Basics</h1>
+    <p class="subtitle">
+      Select a topic below to view the lecture page.
+    </p>
+  </div>
 
-    <a href="flexbox.html" class="card">
+  <div class="grid">
+
+    <a href="variables.html" class="card">
       <div class="icon">📦</div>
       <div class="card-body">
         <div class="card-title">Variables</div>
@@ -63,6 +186,83 @@
       <span class="arrow">→</span>
     </a>
 
+    <a href="datatype.html" class="card">
+      <div class="icon">🔢</div>
+      <div class="card-body">
+        <div class="card-title">Data Types</div>
+        <div class="card-desc">Primitive and reference data types</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="stringmethods.html" class="card">
+      <div class="icon">🔤</div>
+      <div class="card-body">
+        <div class="card-title">String Methods</div>
+        <div class="card-desc">slice(), replace(), indexOf() and more</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="arraymethods.html" class="card">
+      <div class="icon">📋</div>
+      <div class="card-body">
+        <div class="card-title">Array Methods</div>
+        <div class="card-desc">push(), pop(), map(), filter(), reduce()</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="switch.html" class="card">
+      <div class="icon">🔀</div>
+      <div class="card-body">
+        <div class="card-title">Switch Statement</div>
+        <div class="card-desc">Control flow using switch-case</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="userinput.html" class="card">
+      <div class="icon">⌨️</div>
+      <div class="card-body">
+        <div class="card-title">User Input</div>
+        <div class="card-desc">Taking input using prompt() and forms</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="eventsandlistners.html" class="card">
+      <div class="icon">🖱️</div>
+      <div class="card-body">
+        <div class="card-title">Events & Listeners</div>
+        <div class="card-desc">Handling events using addEventListener()</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="htmlselectorinjs.html" class="card">
+      <div class="icon">🎯</div>
+      <div class="card-body">
+        <div class="card-title">HTML Selectors in JS</div>
+        <div class="card-desc">getElementById(), querySelector() and more</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="htmlselectorshtml2.html" class="card">
+      <div class="icon">🎯</div>
+      <div class="card-body">
+        <div class="card-title">HTML Selectors (Part 2)</div>
+        <div class="card-desc">Advanced DOM selection techniques</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+  </div>
+
+  <footer>
+    Web Lectures &copy; 2026
+  </footer>
 
 </body>
 </html>
